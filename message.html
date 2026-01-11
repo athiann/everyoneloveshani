@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Hani</title>
+    <style>
+        /* --- INTERNAL CSS FOR THIS PAGE ONLY --- */
+        
+        /* 1. FONT SETUP */
+        @font-face {
+            font-family: 'UglyDave';
+            src: url('assets/UglyDaveRegular.otf') format('opentype');
+        }
+
+        /* 2. PAGE SETUP (SCROLLABLE BODY) */
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'UglyDave', sans-serif;
+            color: #ddd;
+            min-height: 100vh; /* Allow page to grow */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            
+            /* HIDE SCROLLBAR (Firefox, IE/Edge) */
+            scrollbar-width: none;  
+            -ms-overflow-style: none; 
+        }
+
+        /* HIDE SCROLLBAR (Chrome, Safari, Opera) */
+        body::-webkit-scrollbar { 
+            display: none; 
+        }
+
+        /* 3. THE BACKGROUND LAYER (FIXED) */
+        .background-layer {
+            position: fixed;
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            z-index: -1;
+            
+            background-image: url('assets/grain.png'); 
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.4); 
+            background-color: #313131;
+        }
+
+        /* 4. THE TEXT CONTAINER */
+        .message-container {
+            width: 90%;
+            max-width: 600px;
+            margin: 0 auto; /* Centers the block horizontally */
+            
+            /* THIS PADDING PUSHES THE TITLE TO THE MIDDLE INITIALLY */
+            padding-top: 20vh; 
+            padding-bottom: 100px; /* Extra space at the bottom */
+            
+            text-align: justify;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="background-layer"></div>
+
+    <div class="message-container">
+        <h1>hello hani,</h1>
+        
+        <p>
+            This is where your long message goes. I made sure the text is justified so the edges are clean on both the left and right sides, just like a book.
+        </p>
+        
+        <p>
+            You can replace the background image in the code by changing the file name in the .background-layer class. Right now it expects a file named "grain.png" in your assets folder.
+        </p>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+
+        <p>
+            This is where your long message goes. I made sure the text is justified so the edges are clean on both the left and right sides, just like a book.
+        </p>
+
+        <p>
+            This is where your long message goes. I made sure the text is justified so the edges are clean on both the left and right sides, just like a book.
+        </p>
+
+        <p>
+            This is where your long message goes. I made sure the text is justified so the edges are clean on both the left and right sides, just like a book.
+        </p>
+
+        <p>
+            This is where your long message goes. I made sure the text is justified so the edges are clean on both the left and right sides, just like a book.
+        </p>
+
+        <p>
+            This is where your long message goes. I made sure the text is justified so the edges are clean on both the left and right sides, just like a book.
+        </p>
+
+        <p>
+            This is where your long message goes. I made sure the text is justified so the edges are clean on both the left and right sides, just like a book.
+        </p>
+
+        <p>
+            This is where your long message goes. I made sure the text is justified so the edges are clean on both the left and right sides, just like a book.
+        </p>
+
+        <p style="text-align: right; margin-top: 50px;">
+            Love,<br>
+            (Your Name)
+        </p>
+    </div>
+
+    <audio id="secret-music" autoplay>
+        <source src="assets/secret-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.body.addEventListener('click', () => {
+            const audio = document.getElementById('secret-music');
+            if(audio.paused) audio.play();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+/* --- 1. SETUP & FONT --- */
+@font-face {
+    font-family: 'UglyDave';
+    src: url('assets/UglyDaveRegular.otf') format('opentype');
+}
+
+:root {
+    --bg-color: #fff5f5;
+    --font-main: 'UglyDave', sans-serif;
+    --text-color: #2c2c2c;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden; /* No scroll */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- 2. LAYOUT --- */
+.header-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: normal;
+    color: #333;
+    margin: 0;
+}
+
+/* Main Scene */
+.scene {
+    position: relative;
+    width: 20vw;
+    min-width: 150px;
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+/* MAILBOX CONTAINER */
+.mailbox-wrapper {
+    position: relative;
+    width: 100%;
+    z-index: 5;
+    /* Pushed slightly right */
+    transform: translateX(20%); 
+}
+
+.mailbox-img {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.mailbox-img:hover { transform: scale(1.01); }
+
+/* WALKMAN - UPDATED POSITION */
+.walkman-container {
+    position: absolute;
+    bottom: -49px; /* Moved up slightly */
+    right: 25%;
+    width: 35%;
+    cursor: pointer;
+    z-index: 6;
+    transition: transform 0.2s;
+}
+.walkman-container:hover { transform: scale(1.05) rotate(2deg); }
+
+/* FLOOR LETTER */
+.floor-letter-container {
+    position: absolute;
+    bottom: -10px;
+    left: -5%;
+    width: 30%;
+    cursor: pointer;
+    z-index: 6;
+    transition: transform 0.2s;
+}
+.floor-letter-container:hover { transform: translateY(-5px); }
+
+/* --- 3. OVERLAYS & UI --- */
+.overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    backdrop-filter: blur(4px);
+}
+
+.letter-wrapper {
+    position: relative;
+    height: 85vh;
+    aspect-ratio: 1 / 1.414;
+    max-width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.envelope {
+    width: 100%;
+    max-width: 500px;
+    cursor: pointer;
+    text-align: center;
+    animation: popIn 0.4s ease-out;
+}
+.envelope img { width: 100%; }
+.envelope-label {
+    font-size: 2.5rem;
+    margin-top: -80px;
+    transform: rotate(-3deg);
+    position: relative;
+    z-index: 2;
+    color: #333;
+}
+
+.paper {
+    width: 100%;
+    height: 100%;
+    background-color: #fcfaf2;
+    color: #1a1a1a;
+    padding: 60px;
+    box-sizing: border-box;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    background-image: linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-size: 30px 100%;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    overflow-y: auto;
+    animation: unfold 0.6s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+.paper.hidden { display: none; }
+.paper-text p { margin-bottom: 25px; text-align: left; }
+
+/* Password Box Styling */
+.password-box {
+    background: #fcfaf2;
+    padding: 40px;
+    border: 2px solid #333;
+    text-align: center;
+    font-family: var(--font-main);
+    position: relative;
+}
+.password-box p { font-size: 1.5rem; margin-bottom: 20px; }
+.password-box input { font-size: 1.2rem; padding: 5px; background: transparent; border: 1px solid #333; }
+.password-box button { font-size: 1.2rem; padding: 5px 20px; background: #333; color: #fff; cursor: pointer; margin-top: 20px;}
+.close-btn { background:none !important; border:none !important; color:#333 !important; font-size:1.5rem !important; position:absolute; top:5px; right:10px; margin-top:0 !important;}
+#error-msg { color:#d9534f; display:none; margin-top:10px; font-size: 1rem;}
+
+.hidden { display: none !important; }
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+@keyframes unfold {
+    0% { transform: scaleY(0.05); opacity: 0; }
+    40% { transform: scaleY(0.05); opacity: 1; }
+    100% { transform: scaleY(1); }
+}

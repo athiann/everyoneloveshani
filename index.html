@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Hani</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="header-container">
+        <h1>everyone loves you hani</h1>
+    </div>
+
+    <div class="scene">
+        <div class="mailbox-wrapper">
+            <img src="assets/mailbox.png" alt="Mailbox" class="mailbox-img" onclick="openMailbox()">
+
+            <div class="walkman-container" onclick="toggleMusic()">
+                <img src="assets/walkman.png" style="width:100%" alt="Walkman">
+            </div>
+
+            <div class="floor-letter-container" onclick="triggerSecretGate()">
+                <img src="assets/floor-letter.png" style="width:100%" alt="Secret Letter">
+            </div>
+        </div>
+    </div>
+
+    <div id="friend-overlay" class="overlay" onclick="closeOverlay(event)">
+        <div class="letter-wrapper">
+            <div id="envelope-closed" class="envelope" onclick="revealLetter(event)">
+                <img src="assets/envelope-closed.png" alt="Envelope">
+                <div class="envelope-label">from: <span id="sender-name"></span></div>
+            </div>
+            <div id="paper-content" class="paper hidden">
+                <div class="paper-text" id="letter-body"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="password-overlay" class="overlay" onclick="closePasswordOverlay(event)">
+        <div class="password-box">
+            <button class="close-btn" onclick="closePasswordGate()">x</button>
+            <p>i'll tell you later</p>
+            <input type="password" id="password-input">
+            <br>
+            <button onclick="checkPassword()">Open</button>
+            <p id="error-msg">Wrong answer</p>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop><source src="assets/playlist.mp3" type="audio/mpeg"></audio>
+    <audio id="click-sound"><source src="assets/click.mp3" type="audio/mpeg"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
